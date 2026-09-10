@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "route_id": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-v4-pro",
+      "api_key_env": "BUDGETTRACE_DEEPSEEK_API_KEY",
+      "price_input_per_mtok": 1.32,
+      "price_output_per_mtok": 3.96,
+      "timeout_seconds": 180
+    },
+    {
+      "route_id": "glm-5.2",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-5.2",
+      "api_key_env": "BUDGETTRACE_GLM_API_KEY",
+      "price_input_per_mtok": 1.18,
+      "price_output_per_mtok": 4.13,
+      "timeout_seconds": 180
+    },
+    {
+      "route_id": "minimax-m3",
+      "base_url": "https://api.minimaxi.com/v1",
+      "model": "MiniMax-M3",
+      "api_key_env": "BUDGETTRACE_MINIMAX_API_KEY",
+      "price_input_per_mtok": 0.6,
+      "price_output_per_mtok": 2.4,
+      "timeout_seconds": 180
+    }
+  ]
+}

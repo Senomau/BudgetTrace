@@ -1,0 +1,6 @@
+BudgetTrace
+Copyright 2026 BudgetTrace contributors
+
+This repository contains an adapter and manifests for τ³-bench/tau2-bench.
+τ³-bench is licensed by its upstream authors under the MIT License. This
+repository does not redistribute the complete upstream dataset.

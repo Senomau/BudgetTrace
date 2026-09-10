@@ -1,0 +1,30 @@
+{
+  "dataset_id": "tau3-retail-audited-v1",
+  "upstream": {
+    "name": "sierra-research/tau2-bench",
+    "url": "https://github.com/sierra-research/tau2-bench",
+    "tag": "v1.0.1",
+    "commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+    "license": "MIT",
+    "data_path": "data/tau2/domains/retail"
+  },
+  "domain": "retail",
+  "split": "test",
+  "task_ids": ["33", "38", "39", "40", "60", "62", "68", "70", "108", "111"],
+  "selection_rules": [
+    "Use the public test split.",
+    "Keep only tasks whose declared reward components have non-empty criteria.",
+    "Exclude task IDs with publicly reported task/evaluator issues as of 2026-09-07.",
+    "Preserve the upstream task IDs and revision for replay and attribution."
+  ],
+  "excluded_known_issue_ids": ["10", "21", "27", "36", "45", "61"],
+  "audit_notes": {
+    "retail_task_count": 114,
+    "test_task_count": 40,
+    "tasks_with_empty_nl_assertions_but_nl_reward": 72,
+    "provenance": "public-upstream-manifest-only",
+    "status": "selected-for-audit-before-runtime-adapter"
+  },
+  "provenance": "public-upstream",
+  "online_results": "not-evaluated"
+}

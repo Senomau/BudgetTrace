@@ -1,0 +1,86 @@
+[
+  {
+    "task_id": "code-001",
+    "category": "code_fix",
+    "late_breakthrough": false,
+    "allowed_tools": ["read_file", "run_tests"],
+    "success_contract": {
+      "required_tools": ["read_file", "run_tests"],
+      "required_feedback_ids": ["tests-pass", "post-check-1", "post-check-2"]
+    },
+    "budget_window_steps": 2,
+    "budgets": {"steps": 6, "tokens": 2000, "time_ms": 3000, "cost_micros": 6000},
+    "script": [
+      {"kind": "tool_call", "tool": "read_file", "args": {"path": "src/app.py"}},
+      {"kind": "feedback", "feedback_id": "tests-failed", "score": 0.2},
+      {"kind": "tool_call", "tool": "run_tests", "args": {}},
+      {"kind": "feedback", "feedback_id": "tests-pass", "score": 1.0},
+      {"kind": "feedback", "feedback_id": "post-check-1", "score": 1.0},
+      {"kind": "feedback", "feedback_id": "post-check-2", "score": 1.0}
+    ]
+  },
+  {
+    "task_id": "retrieval-001",
+    "category": "read_only_retrieval",
+    "late_breakthrough": false,
+    "success_contract": {
+      "required_tools": [],
+      "required_feedback_ids": ["evidence-found", "citation-verified"]
+    },
+    "budget_window_steps": 2,
+    "budgets": {"steps": 6, "tokens": 2000, "time_ms": 3000, "cost_micros": 6000},
+    "script": [
+      {"kind": "feedback", "feedback_id": "evidence-found", "score": 0.5},
+      {"kind": "feedback", "feedback_id": "citation-verified", "score": 1.0}
+    ]
+  },
+  {
+    "task_id": "orchestration-001",
+    "category": "tool_orchestration",
+    "late_breakthrough": false,
+    "allowed_tools": ["read_file", "validate"],
+    "success_contract": {
+      "required_tools": ["read_file", "validate"],
+      "required_feedback_ids": ["schema-valid"]
+    },
+    "budget_window_steps": 2,
+    "budgets": {"steps": 6, "tokens": 2000, "time_ms": 3000, "cost_micros": 6000},
+    "script": [
+      {"kind": "tool_call", "tool": "read_file", "args": {"path": "input.json"}},
+      {"kind": "tool_call", "tool": "validate", "args": {}},
+      {"kind": "feedback", "feedback_id": "schema-valid", "score": 1.0}
+    ]
+  },
+  {
+    "task_id": "late-001",
+    "category": "late_breakthrough",
+    "late_breakthrough": true,
+    "success_contract": {
+      "required_tools": [],
+      "required_feedback_ids": ["breakthrough", "verified"]
+    },
+    "budget_window_steps": 2,
+    "budgets": {"steps": 6, "tokens": 2000, "time_ms": 3000, "cost_micros": 6000},
+    "script": [
+      {"kind": "feedback", "feedback_id": "plateau-1", "score": 0.0},
+      {"kind": "feedback", "feedback_id": "plateau-2", "score": 0.0},
+      {"kind": "feedback", "feedback_id": "breakthrough", "score": 1.0},
+      {"kind": "feedback", "feedback_id": "verified", "score": 1.0}
+    ]
+  },
+  {
+    "task_id": "hetero-cost-001",
+    "category": "heterogeneous_cost",
+    "late_breakthrough": false,
+    "success_contract": {
+      "required_tools": [],
+      "required_feedback_ids": ["done"]
+    },
+    "budget_window_steps": 1,
+    "budgets": {"steps": 3, "tokens": 2000, "time_ms": 3000, "cost_micros": 2},
+    "script": [
+      {"kind": "feedback", "feedback_id": "expensive-start", "score": 0.0, "cost_micros": 3},
+      {"kind": "feedback", "feedback_id": "done", "score": 1.0, "cost_micros": 3}
+    ]
+  }
+]
