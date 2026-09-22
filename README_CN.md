@@ -110,7 +110,7 @@ python -m budgettrace live-config-check
 
 ## 工程成熟度与后续工作
 
-当前项目完成了运行时控制、事件回放、版本化业务契约 scorer、固定任务多 trial/matrix 评测和真实端点管线验证。生产化阶段需要继续补齐真实业务系统 scorer、持久化和断点恢复、多租户权限、secret manager、写操作幂等与回滚、人工 gate、服务化限流与故障切换、OpenTelemetry、账单对账、压测和灰度发布。
+当前项目完成了运行时控制、事件回放、版本化业务契约 scorer、固定任务多 trial/matrix 评测和真实端点管线验证。面向生产系统的下一阶段包括真实业务系统 scorer、持久化和断点恢复、多租户权限、secret manager、写操作幂等与回滚、人工 gate、服务化限流与故障切换、OpenTelemetry、账单对账、压测和灰度发布。
 
 ## 安全与隐私
 

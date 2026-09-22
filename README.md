@@ -66,7 +66,7 @@ python -m budgettrace live-matrix `
   --output output/live-matrix
 ```
 
-The default live episode remains informational and uses `scored: false`; its `success` means that the model emitted `finish`. `reference-actions` additionally checks the declared successful tool-action sequence and `finish`, producing a deterministic protocol proxy. A real business-state or database scorer is not included in this release, so these records must not be presented as official τ²-bench reward, online transaction success, or production cost savings.
+The default live episode remains informational and uses `scored: false`; its `success` means that the model emitted `finish`. `reference-actions` additionally checks the declared successful tool-action sequence and `finish`, producing a deterministic protocol proxy. A real business-state or database scorer is not included in this release, so these records must not be presented as official τ²-bench reward, online transaction success, or validated production cost performance.
 
 ## Repository layout
 
